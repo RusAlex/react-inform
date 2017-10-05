@@ -50,7 +50,7 @@ describe('form', () => {
         const change = () => {
           const comp = render();
           comp.find(MyForm).props().fields.field.onChange('newValue');
-          return comp;
+          return comp.update();
         };
 
         it('changes the value prop', () => {
@@ -82,7 +82,7 @@ describe('form', () => {
         const change = () => {
           const comp = render();
           comp.find(MyForm).props().fields.field.onChange(true);
-          return comp;
+          return comp.update();
         };
 
         it('passes the checked property', () => {
@@ -93,7 +93,7 @@ describe('form', () => {
           const backToString = () => {
             const comp = change();
             comp.find(MyForm).props().fields.field.onChange('anything');
-            return comp;
+            return comp.update();
           };
 
           it('removes the checked property', () => {
@@ -592,4 +592,3 @@ describe('form', () => {
     });
   });
 });
-
